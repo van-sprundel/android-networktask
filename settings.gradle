@@ -1,0 +1,3 @@
+include ':networktask'
+include ':app'
+rootProject.name = "ramon-networktask"
