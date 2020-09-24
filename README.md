@@ -11,31 +11,31 @@ You can find the current version in tags
 
 ## Usage
 #### Example Kotlin:
-```kotlin
-  val tr = NetworkTask(RequestMethod.GET, URL)
-  tr.addParameter("name",data)
-  tr.executeAsync(tr, { data: NetworkResult, success: Boolean ->
-    if (success) {
-      try {
-        val json = data.toJSONObject()
-      } catch (e: JSONException) {
-        e.printStackTrace()
+  ```kotlin
+    val tr = NetworkTask(RequestMethod.GET, URL)
+    tr.addParameter("name",data)
+    tr.executeAsync(tr, { data: NetworkResult, success: Boolean ->
+      if (success) {
+        try {
+          val json = data.toJSONObject()
+        } catch (e: JSONException) {
+          e.printStackTrace()
+        }
       }
-    }
-  })
-```
-#### Example Java:
-```java
-  NetworkTask tr = new Networktask(RequestMethod.GET, URL);
-  tr.addParameter("name",data);
-  tr.executeAsync(tr, (data, success) -> {
-    try {
-      JSONObject json = data.toJSONObject();
-    } catch (JSONException e) {
-      e.printStackTrace();
-    }
-  });
+    })
   ```
+#### Example Java:
+  ```java
+    NetworkTask tr = new Networktask(RequestMethod.GET, URL);
+    tr.addParameter("name",data);
+    tr.executeAsync(tr, (data, success) -> {
+      try {
+        JSONObject json = data.toJSONObject();
+      } catch (JSONException e) {
+        e.printStackTrace();
+      }
+    });
+    ```
   
   After getting the content, you can convert the data to a java/android object in the try/catch like this:
   #### Kotlin:
@@ -43,10 +43,10 @@ You can find the current version in tags
   val content = json.getJSONObject(JSON_OBJECT_NAME)
   val name:String = content.optString(JSON_NAME);
   ```
-  #### Java:
+#### Java:
   ```java
-    JSONObject content = json.getJSONObject(JSON_OBJECT_NAME);
-    String name = content.optString(JSON_NAME);
+  JSONObject content = json.getJSONObject(JSON_OBJECT_NAME);
+  String name = content.optString(JSON_NAME);
   ```
   
        
