@@ -29,10 +29,12 @@ You can find the current version in tags
     NetworkTask tr = new Networktask(RequestMethod.GET, URL);
     tr.addParameter("name",data);
     tr.executeAsync(tr, (data, success) -> {
-      try {
-        JSONObject json = data.toJSONObject();
-      } catch (JSONException e) {
-        e.printStackTrace();
+      if (success) {
+        try {
+          JSONObject json = data.toJSONObject();
+        } catch (JSONException e) {
+          e.printStackTrace();
+        }
       }
     });
   ```
