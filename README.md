@@ -38,7 +38,7 @@ This module was made to support the upcoming Android 11 TaskRunner. (since ASync
   val content = json.getJSONObject(JSON_OBJECT_NAME)
   val name:String = content.optString(JSON_NAME);
   ```
-    #### Java:
+  #### Java:
   ```
     JSONObject content = json.getJSONObject(JSON_OBJECT_NAME);
     String name = content.optString(JSON_NAME);
