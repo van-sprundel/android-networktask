@@ -1,10 +1,10 @@
-# android-networktask
+# Android Networktask
 A Network module to pull data from any API and converts it to java objects. (e.g. JSONObject, Drawables etc.)
 This module was made to support the upcoming Android 11 TaskRunner. (since ASync has been deprecated)
 
 ## Installation
 Add this to your **build.gradle/app:**
-```implementation 'com.github.ramones156:android-networktask:1.1'```
+```implementation 'com.github.ramones156:android-networktask:version'```
 
 ## Usage
 #### Example Kotlin:
