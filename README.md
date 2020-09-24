@@ -6,6 +6,7 @@ This module was made to support the upcoming Android 11 TaskRunner. (since ASync
 Add this to your **build.gradle/app:**
 
 ```implementation 'com.github.ramones156:android-networktask:version'```
+
 You can find the current version in tags
 
 ## Usage
