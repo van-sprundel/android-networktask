@@ -3,7 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
-
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     defaultConfig {
         applicationId "com.example.ramon_networktask"
         minSdkVersion 24
@@ -20,12 +22,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     testImplementation 'junit:junit:4.13'
+    testImplementation project(path: ':networktask')
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 

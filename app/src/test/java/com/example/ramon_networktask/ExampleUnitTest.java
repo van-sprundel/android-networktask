@@ -1,5 +1,13 @@
 package com.example.ramon_networktask;
 
+import android.util.Log;
+
+import com.example.networktask.NetworkTask;
+import com.example.networktask.RequestMethod;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +18,36 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    private String url;
+    private String actualUrl = "https://static1.e621.net/data/sample/a5/f8/a5f8cb40370cbdc6a1571d38cfa8b298.jpg";
+
+    @Before
+    public void testConnection() {
+        NetworkTask nt = new NetworkTask(RequestMethod.GET, "https://e621.net/posts/2422363.json");
+        nt.executeAsync(nt, (data, success) -> {
+            if (success) {
+                try {
+                    JSONObject json = data.toJSONObject();
+                    JSONObject post = json.getJSONObject("post");
+                    JSONObject sample = post.getJSONObject("sample");
+                    url = sample.optString("url");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
+
+    @Test
+    public void test() {
+        while (true) {
+            if (url != null) {
+                assertEquals(url, actualUrl);
+                break;
+            }
+        }
+    }
+
 }

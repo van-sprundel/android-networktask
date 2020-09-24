@@ -3,6 +3,7 @@ package com.example.networktask;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -20,16 +21,16 @@ public class NetworkTask implements Callable<NetworkResult> {
     private final Executor executor = Executors.newSingleThreadExecutor(); // change according to your requirements
     private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private final String[] strings;
+    private final StringBuilder url;
     private final HashMap<String, String> headers;
     private final HashMap<String, String> parameters;
     private final HashMap<String, String> formData;
 
     private RequestMethod requestMethod;
 
-    public NetworkTask(RequestMethod requestMethod, String... strings) {
+    public NetworkTask(RequestMethod requestMethod, String url) {
         this.requestMethod = requestMethod;
-        this.strings = strings;
+        this.url = new StringBuilder(url);
         this.headers = new HashMap<>();
         this.parameters = new HashMap<>();
         this.formData = new HashMap<>();
@@ -51,7 +52,6 @@ public class NetworkTask implements Callable<NetworkResult> {
 
     @Override
     public NetworkResult call() {
-        StringBuilder url = new StringBuilder(strings[0]);
         if (parameters.size() > 0) {
             parameters.forEach((k, v) -> {
                 try {
