@@ -1,6 +1,7 @@
 # Android Networktask
 A Network module to pull data from any API and converts it to java objects. (e.g. JSONObject, Drawables etc.)
 This module was made to support the upcoming Android 11 TaskRunner. (since ASync has been deprecated)
+
 Credits to maurict for creating the original code using ASyncTask!
 
 ## Installation
@@ -41,7 +42,6 @@ You can find the current version in tags
   ```
   
 After getting the content, you can convert the data to a java/android object in the try/catch like this:
-  
 #### Kotlin:
   ```kotlin
     val content = json.getJSONObject(JSON_OBJECT_NAME)
