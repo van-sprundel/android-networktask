@@ -114,6 +114,12 @@ public class NetworkResult {
         return Drawable.createFromStream(is, "Useless");
     }
 
+
+    /**
+     * Convert BinaryData to Bitmap
+     *
+     * @return Bitmap from BinaryData
+     */
     public Bitmap toBitmap() {
         Log.d(TAG, "Converting to bitmap");
 
