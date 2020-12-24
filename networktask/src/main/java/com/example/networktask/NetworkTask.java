@@ -26,7 +26,7 @@ public class NetworkTask implements Callable<NetworkResult> {
     private final HashMap<String, String> parameters;
     private final HashMap<String, String> formData;
 
-    private RequestMethod requestMethod;
+    private final RequestMethod requestMethod;
 
     public NetworkTask(RequestMethod requestMethod, String url) {
         this.requestMethod = requestMethod;
@@ -38,14 +38,20 @@ public class NetworkTask implements Callable<NetworkResult> {
 
     //Add headers, parameters or HTTP form data
     public void addHeader(String title, String value) {
+        if (this.headers.containsKey(title))
+            this.headers.put(title, this.headers.get(title) + "+" + value);
         this.headers.put(title, value);
     }
 
     public void addParameter(String title, String value) {
+        if (this.parameters.containsKey(title))
+            this.parameters.put(title, this.parameters.get(title) + "+" + value);
         this.parameters.put(title, value);
     }
 
     public void addFormData(String title, String value) {
+        if (this.formData.containsKey(title))
+            this.formData.put(title, this.formData.get(title) + "+" + value);
         this.formData.put(title, value);
     }
 
