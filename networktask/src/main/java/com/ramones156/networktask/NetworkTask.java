@@ -136,7 +136,6 @@ public class NetworkTask implements Callable<NetworkResult> {
             try {
                 final networkResult result = callable.call();
                 if (result != null) {
-                    Log.d(TAG, result.toString());
                     handler.post(() -> callback.onComplete(result, true));
                 } else {
                     handler.post(() -> callback.onComplete(null, false));
