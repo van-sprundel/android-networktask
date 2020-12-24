@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ramon_networktask">
+    package="com.ramones156.ramon_networktask">
 
     <application
         android:allowBackup="true"

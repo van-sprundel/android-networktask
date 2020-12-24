@@ -1,16 +1,14 @@
-package com.example.ramon_networktask;
+package com.ramones156.ramon_networktask;
 
-import android.util.Log;
-
-import com.example.networktask.NetworkTask;
-import com.example.networktask.RequestMethod;
+import com.ramones156.networktask.NetworkTask;
+import com.ramones156.networktask.RequestMethod;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
