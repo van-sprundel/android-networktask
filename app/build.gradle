@@ -8,8 +8,8 @@ android {
         applicationId "com.ramones156.ramon_networktask"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.4"
+        versionCode 2
+        versionName "1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
