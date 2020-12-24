@@ -45,7 +45,7 @@ After getting the content, you can convert the data to a java/android object in 
 #### Kotlin:
   ```kotlin
     val content = json.getJSONObject(JSON_OBJECT_NAME)
-    val name:String = content.optString(JSON_NAME);
+    val name:String = content.optString(JSON_NAME)
   ```
 #### Java:
   ```java
