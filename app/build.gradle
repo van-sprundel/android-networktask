@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.ramones156.ramon_networktask"
+        applicationId "com.ramones156.networktask"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
