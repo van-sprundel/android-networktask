@@ -38,15 +38,21 @@ public class NetworkTask implements Callable<NetworkResult> {
 
     //Add headers, parameters or HTTP form data
     public void addHeader(String title, String value) {
-        this.headers.put(title, value);
+        if (this.headers.containsKey(title))
+            this.headers.put(title, this.headers.get(title) + "+" + value);
+        else this.headers.put(title, value);
     }
 
     public void addParameter(String title, String value) {
-        this.parameters.put(title, value);
+        if (this.parameters.containsKey(title))
+            this.parameters.put(title, this.parameters.get(title) + "+" + value);
+        else this.parameters.put(title, value);
     }
 
     public void addFormData(String title, String value) {
-        this.formData.put(title, value);
+        if (this.formData.containsKey(title))
+            this.formData.put(title, this.formData.get(title) + "+" + value);
+        else this.formData.put(title, value);
     }
 
 
@@ -129,8 +135,8 @@ public class NetworkTask implements Callable<NetworkResult> {
         executor.execute(() -> {
             try {
                 final networkResult result = callable.call();
-                Log.d(TAG, result.toString());
                 if (result != null) {
+                    Log.d(TAG, result.toString());
                     handler.post(() -> callback.onComplete(result, true));
                 } else {
                     handler.post(() -> callback.onComplete(null, false));
