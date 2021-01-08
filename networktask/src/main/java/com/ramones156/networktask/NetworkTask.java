@@ -122,7 +122,7 @@ public class NetworkTask implements Callable<NetworkResult> {
             return new NetworkResult(buffer.toByteArray());
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "Failed to get data: " + e.getMessage());
+            Log.e(TAG, "Failed to "+requestMethod+" data" + e.getMessage());
         }
         return null;
     }
