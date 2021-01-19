@@ -116,6 +116,9 @@ public class NetworkTask implements Callable<NetworkResult> {
             Log.d(TAG, "Reading response: " + connection.getResponseCode());
             Log.d(TAG, "Response message: " + connection.getResponseMessage());
 
+            if (connection.getResponseCode() == 404)
+                return null;
+
             buffer.flush();
 
             //Create and return new BinaryData object. See BinaryData.java
@@ -135,7 +138,7 @@ public class NetworkTask implements Callable<NetworkResult> {
         executor.execute(() -> {
             try {
                 final networkResult result = callable.call();
-                handler.post(() -> callback.onComplete(result, result != null));
+                handler.post(() -> callback.onComplete(result, result != null ));
             } catch (Exception e) {
                 e.printStackTrace();
             }
